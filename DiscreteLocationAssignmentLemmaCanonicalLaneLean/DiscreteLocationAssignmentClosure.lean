@@ -1,0 +1,19 @@
+import canonicalLaneMathlib.AdmissibleClass
+import DiscreteLocationAssignmentLemmaCanonicalLaneLean.DiscreteMetricSpace
+import DiscreteLocationAssignmentLemmaCanonicalLaneLean.AssignmentStructure
+import DiscreteLocationAssignmentLemmaCanonicalLaneLean.LocationOptimality
+import DiscreteLocationAssignmentLemmaCanonicalLaneLean.LowerBoundStructure
+import DiscreteLocationAssignmentLemmaCanonicalLaneLean.UpperBoundConstruction
+
+namespace HautevilleHouse
+namespace DiscreteLocationAssignmentLemmaCanonicalLaneLean
+
+def ConstrainedDiscreteLocationAssignmentClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_discrete_location_assignment_endgame (A : AdmissibleClass) :
+    ConstrainedDiscreteLocationAssignmentClosure A :=
+  And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end DiscreteLocationAssignmentLemmaCanonicalLaneLean
+end HautevilleHouse
